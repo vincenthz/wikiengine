@@ -1,0 +1,90 @@
+this is a main header
+=====================
+
+== this is a sub header
+
+This is a paragraph. it contains multiple sentences. It doesn't force
+any returns to line, this is only controlled by the html rendering.
+
+== Math is hard, let's go shopping
+
+There's a bunch of escape to conveniently use some mathematical symbols.
+
+for example:
+
+\lambda = \pi 
+
+\forall x, x = x
+
+\setR \superset \setN
+
+It also works with unicode escape, for symbol i didn't define yet:
+
+a \#8803 b
+
+== We all like making lists
+
+with a list of fruits for a starter:
+
+* Red Apples
+* Purple Grapes
+* Green Kiwifruits
+
+but we can also have more elaborate items:
+
+1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+
+== Ascii Art and unevaluated syntax
+
+ascii art:
+
+%%%
+           ,-. 
+  ,     ,-.   ,-. 
+ / \   (   )-(   ) 
+ \ |  ,.>-(   )-< 
+  \|,' (   )-(   ) 
+   Y ___`-'   `-' 
+   |/__/   `-' 
+   | 
+   | 
+   |    -hrr- 
+___|_____________ 
+
+%%%
+
+or C code:
+
+%%%-C
+int main(int argc, char **argv)
+{
+	printf("hello world\n");
+}
+%%%
+
+== Table
+
++--------------------------+
+|this | is       | a table |
+|with | multiple | rows    |
+
+another table:
+
++-------------------------------+
+|header1|header2|header3|header4|
+| x1 | x2 | x3 | x4 |
+| y1 | y2 | y3 | y4 |
+| z1 | z2 | z3 | z4 |
+
+
+== Unicode support
+
+of Course, it would be incomplete without proper unicode. 漢語 , Кинески , おはよう

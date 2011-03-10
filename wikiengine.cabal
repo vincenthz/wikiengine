@@ -1,0 +1,36 @@
+Name:                wikiengine
+Version:             0.8.0
+Description:         Wiki engine
+License:             BSD3
+License-file:        LICENSE
+Author:              Vincent Hanquez
+Maintainer:          vincent@snarc.org
+Build-Type:          Simple
+Cabal-Version:       >=1.6
+
+Flag executable
+  Description:       Build the executable
+  Default:           True
+
+Library
+  Build-Depends:     base >= 3 && < 5
+                   , parsec >= 3
+                   , text >= 0.11
+                   , mtl
+                   , blaze-html
+  Exposed-modules:   Text.WikiEngine
+  Other-modules:     Text.WikiEngine.Configuration
+                     Text.WikiEngine.HTML
+                     Text.WikiEngine.Enlightened
+                     Text.WikiEngine.Parse
+                     Text.WikiEngine.Type
+  ghc-options:       -Wall
+
+Executable wikihtml
+  Main-Is:           Wikihtml.hs
+  Build-depends:     bytestring
+                   , cmdargs
+  if flag(executable)
+    Buildable:       True
+  else
+    Buildable:       False
