@@ -12,7 +12,7 @@ parseDocument :: String -> Either ParseError [Block]
 parseDocument s = parse document "source" (s ++ "\n\n")
 
 document :: P [Block]
-document = optional eob >> many block
+document = many block
 
 block :: P Block
 block = choice
