@@ -64,6 +64,9 @@ ___|_____________
 or C code:
 
 %%%-C
+
+char c[] = { 0x00, 0, 1, 2, 3, 0xff };
+
 int main(int argc, char **argv)
 {
 	printf("hello world\n");

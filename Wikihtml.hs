@@ -11,6 +11,8 @@ import qualified Text.Blaze.Renderer.Pretty as RenderPretty (renderHtml)
 
 import qualified Data.ByteString.Lazy as L
 
+renderCfg = defaultRenderCfg { rcfgCodeRenderType = CodeRenderSimple }
+
 doMain (Render input pretty) = do
 	content <- readFile input
 	let wikiblocks =
@@ -18,8 +20,8 @@ doMain (Render input pretty) = do
 			Right blocks -> blocks
 			Left  errors -> error ("error parsing wiki content: " ++ show errors)
 	if pretty
-		then putStrLn $ RenderPretty.renderHtml $ renderAsHtml defaultRenderCfg wikiblocks
-		else L.putStrLn $ RenderUtf8.renderHtml $ renderAsHtml defaultRenderCfg wikiblocks
+		then putStrLn $ RenderPretty.renderHtml $ renderAsHtml renderCfg wikiblocks
+		else L.putStrLn $ RenderUtf8.renderHtml $ renderAsHtml renderCfg wikiblocks
 
 doMain (Raw input) = do
 	content <- readFile input

@@ -60,8 +60,11 @@ operators kws = try $ do
 		then return (Keyword, s)
 		else return (Operator, s)
 
-number, str, chr, other :: P Atom
+number, hexnumber, str, chr, other :: P Atom
 number = try $ many1 digit >>= \x -> return (Number, x)
+hexnumber = try $ do
+	string "0x" >> many1 hexDigit >>= \x -> return (Number, "0x" ++ x)
+
 str    = try $ between (char '"') (char '"') (many (noneOf "\"")) >>= \x -> return (String, '"' : x ++ ['"'])
 chr    = try $ between (char '\'') (char '\'') (oneOf symbolChar) >>= \x -> return (Char, '\'' : x : ['\''])
 other  = anyToken >>= \x -> return (Other, [x])
@@ -84,7 +87,7 @@ parseC = manyTill (choice
 	, str
 	, chr
 	, operators []
-	, number
+	, hexnumber, number
 	, other
 	]) (try eof)
 
@@ -118,7 +121,7 @@ parseHaskell = manyTill (choice
 	, operators haskellKeywords
 	, str
 	, chr
-	, number
+	, hexnumber, number
 	, other
 	]) (try eof)
 
